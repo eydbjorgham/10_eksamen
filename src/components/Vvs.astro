@@ -2,4 +2,53 @@
 
 ---
 
-<style></style>
+<article class="vvs-wrapper">
+  <div class="vvs-tekst">
+    <h1>Drikker du rent vand?</h1>
+    <p>Hos Lumi har vi talt med Lars C. Nielsen, ekspert inden for vand og stifter af Øens VVS på Amager. Med mange års erfaring i feltet ved Lars, hvor stor en forskel rent drikkevand gør – ikke kun for helbredet, men også for hverdagen.</p>
+  </div>
+  <div class="vvs-tekst2">
+    <p>I interviewet sætter han ord på, hvorfor rent vand ikke er en selvfølge i Danmark, og hvad du som forbruger kan gøre for at sikre bedre vandkvalitet i dit eget hjem. "For når vi passer på vores drikkevand, så passer vi også på hinanden. siger Lars C. Nielsen.</p>
+  </div>
+  <div class="vvs-video">
+    <video src="../public/vids/video" controls></video>
+  </div>
+</article>
+
+<style>
+  .vvs-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrerer alt horisontalt */
+    text-align: center;
+    gap: 2em;
+    padding: 5em 2em;
+  }
+
+  .vvs-tekst,
+  .vvs-tekst2 {
+    max-width: 800px;
+    color: #003f5b;
+    line-height: 1.7;
+  }
+
+  .vvs-tekst h1 {
+    margin-bottom: 1em;
+  }
+
+  .vvs-tekst2 p {
+    font-style: italic;
+  }
+
+  .vvs-video {
+    width: 75vw; /* Fylder hele skærmens bredde */
+  }
+
+  .vvs-video video {
+    width: 100%;
+    height: auto;
+    max-width: none; /* Fjern begrænsningen */
+    border-radius: 15px; /* Valgfrit – eller behold afrunding */
+    display: block;
+  }
+</style>
