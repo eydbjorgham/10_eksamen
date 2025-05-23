@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  max-width: 2560px;
 }
 
 body {
@@ -16,4 +15,13 @@ p,
 ul,
 li {
   font-family: Arial, Helvetica, sans-serif;
+  color: #003f5b;
+}
+
+article {
+  max-width: 1200px;
+  width: 100%;
+  margin-inline: auto;
+  padding-left: 1em;
+  padding-right: 1em;
 }
