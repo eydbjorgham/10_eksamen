@@ -7,7 +7,7 @@
             <h1 class="h1_footer">Information</h1>
             <ul>
                 <li><a href="/">Hjem</a></li>
-                <li><a href="/product">Produkter</a></li>
+                <li><a href="/productsite">Produkter</a></li>
                 <li><a href="/om">Om</a></li>
             </ul>
         </div>
@@ -76,11 +76,13 @@ p, a{
 .h1_footer {
     padding-bottom: 0.5em;
     padding-top: 2em;
+    font-size: 1.5rem;
 }
 
-.p_footer {
+.p_footer p {
     padding-top: 0.5em;
 }
+
 /** FOOTER 1 **/
 .footer_grid {
   display: grid; /* Grid */
@@ -151,14 +153,16 @@ li a {
 }
 
 /** OVERSKRIFT + P I FOOTER */
-.h1_footer {
+.h1_footer h1 {
   font-family: Arial, Helvetica, sans-serif; /** Font */
   font-size: 1.5rem; /** Font størrelse */
 }
 
 
-.p_footer {
+.p_footer p {
   line-height: 1.6; /** Linjehøjde */
+  text-align: center;
+  font-size: 0.7rem;
 }
 
 /** BETALINGSMIDLER */
@@ -194,7 +198,7 @@ display: flex;
 
 
 /** SKRIFT EFTER BETALINGSMIDLER */
-.p_underlinje {
+.p_underlinje p {
   font-size: 0.7rem; /** Font størrelse */
   text-align: center; /** I midten */
 }
@@ -250,7 +254,7 @@ display: flex;
     margin-top: -10px; /** Stjerner tættere på tekst */
   }
 
-  .p_footer2 {
+  .p_footer2 p {
     font-size: 1rem; /** Mindre font */
   }
 
@@ -261,7 +265,7 @@ display: flex;
     margin-right: 2em;
   }
 
-  .p_underlinje {
+  .p_underlinje p {
     font-size: 0.8rem; /** Mindre font */
   }
 
