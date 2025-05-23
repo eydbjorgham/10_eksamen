@@ -1,5 +1,78 @@
 ---
 
 ---
+<div class="boks_header">
+    <div class="trustpilot">
+        <img src="imgs/trust.webp" alt="trustpilot">
+        <p class="p_trust">4.7 på Trustpilot</p>
+    </div>
 
-<style></style>
+    <p class="p_risiko">PRØV 30 DAGE RISIKOFRIT | 1-2 DAGES GRATIS LEVERING</p>
+
+    <div class="dansk">
+        <img src="imgs/emark.webp" alt="emærke">
+        <img src="imgs/danmark.webp" alt="dansk flag">
+        <p class="p_dansk">Dansk virksomhed</p>
+    </div>
+</div>
+<style>
+
+/** BASIC */
+p, a{
+    font-family: Arial, Helvetica, sans-serif; /** Font */
+    line-height: 1.6; /** Linje højde */
+}
+
+.p_trust,
+.p_risiko,
+.p_dansk {
+  color: white; /** Font farve */
+  font-size: 0.5rem; /** Font størrelse */
+}
+
+/** BOKS BANNER */
+.boks_header {
+  background-color: #003f5b; /** Farve på banner */
+  display: grid; /** Grid */
+  grid-template-columns: 1fr 1fr 1fr; /** Tre kolonner */
+}
+
+/** TRUSTPILOT */
+.trustpilot {
+  display: flex; /** På linje */
+  gap: 5px; /** Mellemrum */
+  align-items: center; /** Tekst midten */
+  padding-left: 0.5em; /** Mellemrum venstre */
+}
+
+.trustpilot img {
+  width: 60px; /** Størrelse på billede */
+}
+
+/** TEKST I MIDTEN */
+.p_risiko {
+  text-align: center; /** Tekst centreret */
+}
+
+/** BILLEDER I 3. KOLONNE */
+.dansk img {
+  width: 20px; /** Størrelse på billeder */
+}
+
+.dansk {
+  display: flex; /** På linje */
+  gap: 5px; /** Mellemrum */
+  align-items: center; /** Tekst midt */
+  margin-left: auto; /** Midt auto */
+  padding-right: 0.5em; /** Mellemrum venstre */
+}
+
+/** DESKTOP */
+@media (min-width: 600px) {
+    .p_trust,
+.p_risiko,
+.p_dansk {
+  font-size: 0.7rem; /** Mindre font */
+}
+}
+</style>
