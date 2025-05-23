@@ -1,10 +1,25 @@
 ---
 
 ---
+
 <div class="nav_bar">
-    <div class="logo">
-        <a class="logo" href="index.astro"><img src=" imgs/lumi.svg" alt="lumi logo"></a>
+  <div class="logo">
+    <a class="logo" href="index.astro"><img src="imgs/lumi.svg" alt="lumi logo" /></a>
+  </div>
+  <nav class="navigation">
+    <ul class="menu">
+      <li><a href="index.astro">Hjem</a></li>
+      <li><a href="product.astro">Produkter</a></li>
+      <li><a href="om.astro">Om</a></li>
+    </ul>
+    <a class="vogn" href="#"><img src="imgs/vogn.webp" alt="indkøbsvogn" /></a>
+
+    <div class="burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
     </div>
+
     <nav class="navigation">
         <ul class="menu">
             <li><a href="/">Hjem</a></li>
@@ -21,177 +36,176 @@
             <div class="line"></div>
         </div>
     </nav>
+
+  </nav>
+
 </div>
 
 <style>
-
-/** BASIC */
-p, a {
+  /** BASIC */
+  p,
+  a {
     font-family: Arial, Helvetica, sans-serif; /** Font family */
-}
+  }
 
-/** HELE NAVBAR */
-.nav_bar {
-  padding-top: 20px; /** Afstand til top */
-  display: grid; /** Grid */
-  grid-template-columns: 1fr 1fr 1fr; /** 3 kolonner */
-}
+  /** HELE NAVBAR */
+  .nav_bar {
+    padding-top: 20px; /** Afstand til top */
+    display: grid; /** Grid */
+    grid-template-columns: 1fr 1fr 1fr; /** 3 kolonner */
+  }
 
-.navigation {
-  display: flex; /** På linje */
-  margin-left: auto; /** Auto midt */
-  margin-right: 4em;
-}
+  .navigation {
+    display: flex; /** På linje */
+    margin-left: auto; /** Auto midt */
+    margin-right: 4em;
+  }
 
-/** LOGO */
-.logo {
-  text-align: center; /** I midten */
-  grid-column: 2; /** placeret i 2. kolonne */
-}
+  /** LOGO */
+  .logo {
+    text-align: center; /** I midten */
+    grid-column: 2; /** placeret i 2. kolonne */
+  }
 
-.logo img {
-  width: 100px; /** Størrelse på logo */
-}
+  .logo img {
+    width: 100px; /** Størrelse på logo */
+  }
 
-/** MENU */
-.menu {
-  display: flex; /** På liste */
-  list-style: none; /** Ingen prikker */
-  margin-left: auto; /** Inten margin */
-  margin-right: auto;  /** Inten margin */
-  padding: 0; /** Inten padding */
-  margin: 0; /** Inten margin */
-}
+  /** MENU */
+  .menu {
+    display: flex; /** På liste */
+    list-style: none; /** Ingen prikker */
+    margin-left: auto; /** Inten margin */
+    margin-right: auto; /** Inten margin */
+    padding: 0; /** Inten padding */
+    margin: 0; /** Inten margin */
+  }
 
-.menu li {
-  margin-right: 20px; /** Mere afstand */
-}
+  .menu li {
+    margin-right: 20px; /** Mere afstand */
+  }
 
-.menu a {
-  display: block; /** Auto højde */
-  padding: 10px; /** Mellemrum */
-  color: #003f5b; /** Farve */
-  text-decoration: none; /** Ingen underscore */
-  text-align: end; /** Tekst højre */
-  font-weight: bold; /** Fed */
-}
+  .menu a {
+    display: block; /** Auto højde */
+    padding: 10px; /** Mellemrum */
+    color: #003f5b; /** Farve */
+    text-decoration: none; /** Ingen underscore */
+    text-align: end; /** Tekst højre */
+    font-weight: bold; /** Fed */
+  }
 
-.menu a:hover {
-  color: #bfdbe8; /** Sort hover */
-}
+  .menu a:hover {
+    color: #bfdbe8; /** Sort hover */
+  }
 
+  /** INDKØBSVOGN */
+  .vogn img {
+    width: 30px; /** Størrelse på billede */
+  }
 
-/** INDKØBSVOGN */
-.vogn img {
-  width: 30px; /** Størrelse på billede */
-}
+  .burger {
+    width: 30px; /** Længdre på burger */
+    height: 20px; /** Højde på burger */
+    cursor: pointer; /** Gør burger klikbar */
+  }
 
-.burger {
-  width: 30px; /** Længdre på burger */
-  height: 20px; /** Højde på burger */
-  cursor: pointer; /** Gør burger klikbar */
-}
+  .burger .line {
+    width: 100%; /** Størrelse */
+    height: 2px; /** Størrelse burger streger */
+    background-color: #003f5b; /** Farve */
+    margin-bottom: 5px; /** Afstand mellem linjer */
+    transition: 0.2s linear; /** Transistion */
+  }
 
-.burger .line {
-  width: 100%; /** Størrelse */
-  height: 2px; /** Størrelse burger streger */
-  background-color: #003f5b; /** Farve */
-  margin-bottom: 5px; /** Afstand mellem linjer */
-  transition: 0.2s linear; /** Transistion */
-}
+  .burger {
+    display: none; /** Fjerner burger dekstop */
+  }
 
-.burger {
-  display: none; /** Fjerner burger dekstop */
-}
-
-/** MOBILFORMAT */
-@media screen and (max-width: 980px) {
-/** VOGN */
+  /** MOBILFORMAT */
+  @media screen and (max-width: 980px) {
+    /** VOGN */
     .vogn img {
-        padding-top: 20px; /** Afstand top */
-    
+      padding-top: 20px; /** Afstand top */
     }
 
     /** MENU */
-  .menu {
-    display: none; /** Menu skjules */
+    .menu {
+      display: none; /** Menu skjules */
+    }
+
+    /** BURGER */
+    .burger {
+      display: block; /** Burger synlig */
+      margin-top: 25px; /** Afstand top */
+      padding-left: 10px; /** Mellemrum venstre */
+    }
+
+    .burger.active .line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px); /** Laver kryds centralt */
+      transition: 0.2s linear; /** Når kryds = glidende */
+    }
+
+    .burger.active .line:nth-child(2) {
+      opacity: 0; /** Fjerner streg to = kryds */
+      transition: 0.15s linear; /** Når kryds = glidende */
+    }
+
+    .burger.active .line:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px); /** Laver kryds centralt */
+      transition: 0.2s linear; /** Når kryds = glidende */
+    }
+
+    nav.active .menu {
+      display: block; /** Menu bliver synlig */
+      background-color: #ffffff; /** Baggrundsfar */
+      top: 150px; /** Menu kommer rigtig ned */
+      left: 0; /** Fylder det hele */
+      width: 100%; /** Menu fylder hele skærm */
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /** Skygge */
+      z-index: 40; /** Rykker menu frem foran alt */
+      position: absolute; /** Gør menuen fylder hele skærm */
+    }
+
+    nav.active .menu li {
+      padding: 10px 20px; /** Mellemrum mellem links */
+    }
+
+    nav.active .menu a {
+      font-size: 1.1rem; /** Skriftstørrelse */
+    }
+
+    /** NAVIGATION */
+    .navigation {
+      display: flex; /** På linje m kurv */
+      margin-right: 2em;
+    }
   }
-
-  /** BURGER */
-  .burger {
-    display: block; /** Burger synlig */
-    margin-top: 25px; /** Afstand top */
-    padding-left: 10px; /** Mellemrum venstre */
-  }
-
-  .burger.active .line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px); /** Laver kryds centralt */
-    transition: 0.2s linear; /** Når kryds = glidende */
-  }
-
-  .burger.active .line:nth-child(2) {
-    opacity: 0; /** Fjerner streg to = kryds */
-    transition: 0.15s linear; /** Når kryds = glidende */
-  }
-
-  .burger.active .line:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px); /** Laver kryds centralt */
-    transition: 0.2s linear; /** Når kryds = glidende */
-  }
-
-  nav.active .menu {
-    display: block; /** Menu bliver synlig */
-    background-color: #ffffff; /** Baggrundsfar */
-    top: 150px; /** Menu kommer rigtig ned */
-    left: 0; /** Fylder det hele */
-    width: 100%; /** Menu fylder hele skærm */
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /** Skygge */
-    z-index: 40; /** Rykker menu frem foran alt */
-    position: absolute; /** Gør menuen fylder hele skærm */
-  }
-
-  nav.active .menu li {
-    padding: 10px 20px; /** Mellemrum mellem links */
-
-  }
-
-  nav.active .menu a {
-    font-size: 1.1rem; /** Skriftstørrelse */
-  }
-
-  /** NAVIGATION */
-  .navigation {
-    display: flex; /** På linje m kurv */
-    margin-right: 2em;
-  }
-}
-
 </style>
 
 <script is:inline>
-// Buger menu
-// HENTER BURGER
-const burger = document.querySelector(".burger");
-const nav = document.querySelector("nav");
-const menu = document.querySelector(".menu");
+  // Buger menu
+  // HENTER BURGER
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector("nav");
+  const menu = document.querySelector(".menu");
 
-// Klik
-burger.addEventListener("click", burgerClick);
-function burgerClick() {
+  // Klik
+  burger.addEventListener("click", burgerClick);
+  function burgerClick() {
     // Tilføj/fjern active burger = streger
-  burger.classList.toggle("active");
+    burger.classList.toggle("active");
 
-  // Tilføj/fjern active nav = menu
-  nav.classList.toggle("active");
-}
+    // Tilføj/fjern active nav = menu
+    nav.classList.toggle("active");
+  }
 
-// KLIK PÅ MENUEN
-menu.addEventListener("click", menuClick);
-function menuClick() {
+  // KLIK PÅ MENUEN
+  menu.addEventListener("click", menuClick);
+  function menuClick() {
     // Lukker burger-ikon
-  burger.classList.remove("active");
+    burger.classList.remove("active");
 
-  // Skjuler menu
-  nav.classList.remove("active");
-}
+    // Skjuler menu
+    nav.classList.remove("active");
+  }
 </script>
