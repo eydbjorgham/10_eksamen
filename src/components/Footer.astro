@@ -6,9 +6,9 @@
         <div class="liste_footer">
             <h1 class="h1_footer">Information</h1>
             <ul>
-                <li><a href="index.astro">Hjem</a></li>
-                <li><a href="product.astro">Produkter</a></li>
-                <li><a href="om.astro">Om</a></li>
+                <li><a href="/">Hjem</a></li>
+                <li><a href="/product">Produkter</a></li>
+                <li><a href="/om">Om</a></li>
             </ul>
         </div>
         <div class="footer_grid_1">
@@ -56,7 +56,7 @@
     </div>
 
     <div class="footer_video">
-        <a href="index.astro">
+        <a href="/">
         <video autoplay muted loop playsinline>
             <source src="vids/lumi3.mp4" type="video/mp4">
             Din browser understøtter ikke videoer.
@@ -73,6 +73,14 @@ p, a{
     line-height: 1.6; /** Linjehøjde */
 }
 
+.h1_footer {
+    padding-bottom: 0.5em;
+    padding-top: 2em;
+}
+
+.p_footer {
+    padding-top: 0.5em;
+}
 /** FOOTER 1 **/
 .footer_grid {
   display: grid; /* Grid */
@@ -88,21 +96,25 @@ p, a{
   grid-template-columns: 1fr 1fr 1fr 1fr; /** 4 koloner */
   width: 150px; /** Bilelde-størrelse */
   gap: 10px; /** Mellemrum */
+
 }
 
 /** BILLEDER I SOME */
 .footer_grid_1 img {
 width: 30px; /** Størrelse på billeder */
+padding-top: 1em;
 }
 
 /** TRUSTPILOT **/
 .footer_grid_1-1 img {
   width: 50%; /** Størrelse på trustpilot */
   margin-top: -10px; /** Mindre mellemrum til p */
+  padding-top: 1em;
 }
 
 .p_footer2 {
   font-size: 0.9rem; /** Font størrelse */
+  padding-top: 1em;
 }
 
 /** EMARK */
@@ -110,6 +122,9 @@ width: 30px; /** Størrelse på billeder */
   width: 20px; /** Størrelse på billede */
 }
 
+.footer_grid_1-1-1 {
+    padding-top: 1em;
+}
 .footer_betaling {
     margin-top: -10%;
 }
@@ -206,6 +221,7 @@ display: flex;
 @media (min-width: 600px) {
    .footer_betaling {
     padding-top: 80px;
+    left: 40%; /** Midten */
 }
 }
 
@@ -225,9 +241,8 @@ display: flex;
 /** BETALING */
   .footer_betaling {
   position: relative;
-    left: 50%; /** Midten */
+    left: 15%; /** Midten */
     transform: translateX(50%); /** Midten */
-    padding-top: 10%; /** Afstand top */
   }
 
   /** Trustpilot */
@@ -242,7 +257,7 @@ display: flex;
   /** BETALING */
   .footer_betaling2 {
     width: 280px; /** Mindre billeder */
-    margin-left: 2em;
+    margin-left: 4em;
     margin-right: 2em;
   }
 
@@ -273,3 +288,19 @@ display: flex;
 
 }
 
+@media (min-width: 980px) {
+    .footer_betaling {
+  position: relative;
+    left: 40%; /** Midten */
+    transform: translateX(50%); /** Midten */
+  }}
+
+  
+  @media (min-width: 1120px) {
+    .footer_betaling {
+  position: relative;
+    left: 50%; /** Midten */
+    transform: translateX(50%); /** Midten */
+  }}
+
+  
