@@ -1,5 +1,38 @@
 ---
-
+import "../styles/style.css";
 ---
 
-<style></style>
+<article>
+  <div class="optimering">
+    <div class="otekst">
+      <h2>Optimer din sundhed med rent vand</h2>
+
+      <p>Med LUMI Pure kan du beskytte din sundhed og din families velvære. Det avancerede 8-lags filtreringssystem kombineret med UV-C teknologi fjerner bakterier og reducerer pesticider, PFAS, kalk og andre urenheder direkte fra din vandhane. Rent vand er essentielt for din krop og din hverdag. Prioriter din sundhed – start med dit vand!</p>
+    </div>
+
+    <div class="order">
+      <img src="/imgs/grin.webp" alt="Grin" />
+    </div>
+  </div>
+</article>
+
+<style>
+  @media (min-width: 769px) {
+    .optimering {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .order {
+      display: block;
+      order: -1;
+      padding-right: 20px;
+    }
+
+    .otekst {
+      margin-top: 35px;
+      margin-right: 70px;
+    }
+  }
+</style>
