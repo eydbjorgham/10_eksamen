@@ -18,10 +18,18 @@ li {
   color: #003f5b;
 }
 
+p {
+  line-height: 1.6;
+}
+
 article {
   max-width: 1200px;
   width: 100%;
   margin-inline: auto;
   padding-left: 1em;
   padding-right: 1em;
+}
+
+img {
+  border-radius: 2em;
 }
