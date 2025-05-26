@@ -1,16 +1,16 @@
 ---
-
+import Button from "./Button.astro";
 ---
 
 <section>
   <div class="hero-content">
-    <video autoplay loop muted src="./public/vids/herovid.mp4"></video>
+    <video autoplay loop muted src="./vids/herovid.mp4"></video>
   </div>
 
   <div class="hero-tekst">
     <h1>LUMI Pure - Rent vand. Ren velvære</h1>
     <h2>Filtrer dit drikkevand - direkte fra hanen</h2>
-    <button>Køb Lumi idag</button>
+    <a href="/product"><Button text="Køb LUMI Pure" variant="light" /></a>
   </div>
 </section>
 
@@ -58,7 +58,7 @@
 
   @media (min-width: 769px) {
     .hero-tekst {
-      top: 76%;
+      top: 73%;
       left: 2%;
     }
 
