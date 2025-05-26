@@ -5,28 +5,54 @@
 <div class="wave-wrapper">
   <section>
     <div class="forste-hvorfor">
-      <img class="billede1" src="../public/imgs/tofiltrehvorfor.webp" alt="To filtre" />
+      <img class="billede1" src="/imgs/tofiltrehvorfor.webp" alt="To filtre" />
       <p class="tekst1">Med LUMI Pure kan du beskytte din sundhed og din families velvære. Det avancerede 8-lags filtreringssystem kombineret med UV-C teknologi fjerner bakterier og reducerer pesticider, PFAS, kalk og andre urenheder direkte fra din vandhane.</p>
       <p class="tekst2">Kalk, pesticider og tungmetaller er blandt de mest skadelige stoffer, der kan påvirke din krop negativt. Mange danskere drikker dagligt vand, der indeholder disse stoffer, uden at tænke over de potentielle konsekvenser. Rent vand er essentielt for din krop og din hverdag. Prioriter din sundhed – start med dit vand!</p>
-      <img class="billede2" src="../public/imgs/emmadrik.webp" alt="Kvinde drikker vand" />
+      <img class="billede2" src="/imgs/emmadrik.webp" alt="Kvinde drikker vand" />
     </div>
   </section>
 </div>
 
 <style>
-  section {
-    display: grid;
-    grid-template-rows: 1fr;
-    margin: 5em 4em 4em 4em; /* Beholder din indholdsmargin */
+  .wave-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 5em;
   }
 
-  .wave-wrapper {
-    background-image: url("../public/imgs/wave.svg");
-    background-size: cover;
+  .wave-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-image: url("/imgs/wave.svg");
+    background-size: auto 100%;
     background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: auto;
+    background-repeat: repeat-x;
+    animation: waveScroll 15s ease-in-out infinite;
+    z-index: 0; /* Bag indholdet */
+  }
+
+  @keyframes waveScroll {
+    from {
+      background-position-x: 0;
+    }
+    to {
+      background-position-x: -100%;
+    }
+  }
+
+  .wave-wrapper section {
+    position: relative;
+    z-index: 1; /* Indhold ligger ovenpå bølgen */
+    display: grid;
+    grid-template-rows: 1fr;
+    padding: 5em 4em 4em 4em;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 
   .forste-hvorfor {
@@ -54,7 +80,7 @@
   }
 
   @media (min-width: 769px) {
-    article {
+    section {
       display: grid;
       grid-template-rows: 1fr;
       margin: 5em 4em 0 4em; /* Beholder din indholdsmargin */
