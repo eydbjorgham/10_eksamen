@@ -2,10 +2,10 @@
 
 ---
 
-<section class="fordele-wrapper">
+<section class="wave-wrapper">
   <div class="fordele-indhold">
     <div class="fordele-kolonne">
-      <img src="./imgs/lumifilterfordele.png" alt="LUMI Pure vandfilter" />
+      <img src="/imgs/lumifilterfordele.png" alt="LUMI Pure vandfilter" />
       <ul class="fordele-liste">
         <li>Reducerer Pesticider</li>
         <li>Mindre kalk</li>
@@ -15,7 +15,7 @@
       </ul>
     </div>
     <div class="ulemper-kolonne">
-      <img src="./imgs/vandhanecons.png" alt="Almindelig vandhane" />
+      <img src="/imgs/vandhanecons.png" alt="Almindelig vandhane" />
       <ul class="ulemper-liste">
         <li>50% indeholder usynlige rester</li>
         <li>Hårdt vand kan skade nyrer</li>
@@ -28,7 +28,7 @@
 </section>
 
 <style>
-  .fordele-wrapper {
+  .wave-wrapper {
     position: relative;
     width: 100%;
     height: auto;
@@ -37,7 +37,7 @@
     z-index: 0;
   }
 
-  .fordele-wrapper::before {
+  .wave-wrapper::before {
     content: "";
     position: absolute;
     top: 0;
@@ -45,7 +45,7 @@
     width: 200%;
     height: 100%;
     background-image: url("./imgs/wave.svg");
-    background-size: contain;
+    background-size: auto 100%;
     background-position: center;
     background-repeat: repeat-x;
     animation: waveScroll 15s linear infinite;
@@ -108,7 +108,7 @@
   }
 
   @media (min-width: 769px) {
-    .fordele-wrapper {
+    .fordele-indhold {
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
