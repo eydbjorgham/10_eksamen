@@ -7,13 +7,61 @@ import Produkter from "../components/Produkter.astro";
 import Bruglumi from "../components/Bruglumi.astro";
 import Anmeldelser from "../components/Anmeldelser.astro";
 import Footer from "../components/Footer.astro";
+import Button from "../components/Button.astro";
+
+const url = "https://frizcejgsvbkqyhikump.supabase.co/rest/v1/Lumi";
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaXpjZWpnc3Zia3F5aGlrdW1wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgyNTc1NDYsImV4cCI6MjA2MzgzMzU0Nn0.VE_NVmA4CjCeMtV2eeHbF-YYfobYjhQoiXbeJ-QEIKc";
+
+const options = {
+  headers: {
+    apikey: key,
+  },
+};
+
+const request = await fetch(url, options);
+const rawData = await request.json();
 ---
 
 <Layout>
   <Banner />
   <Navbar />
-  <Produkter />
-  <Bruglumi />
-  <Anmeldelser />
-  <Footer />
+
+  <article>
+    <h1 class="ptekst1">Produkter</h1>
+
+    <div class="pgrid">
+      {
+        rawData.map((element) => {
+          return <Produkter data={element} />;
+        })
+      }
+
+      <a href="/#" <Button text="Køb her" variant="light"></a>
+    </div>
+  </article>
 </Layout>
+
+<Bruglumi />
+<Anmeldelser />
+<Footer />
+
+<style>
+  .ptekst1 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  @media (max-width: 768px) {
+    .ptekst1 {
+      padding-left: 1.2em;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .pgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2em;
+    }
+  }
+</style>
