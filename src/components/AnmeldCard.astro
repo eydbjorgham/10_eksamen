@@ -1,0 +1,35 @@
+---
+import "../styles/styles.css";
+---
+
+<div class="card">
+  <div class="avatar-wrapper">
+    <img src="imgs/anmeldelse.webp" alt="Anmelder" class="avatar" />
+  </div>
+  <slot />
+</div>
+
+<style>
+  .card {
+    border: 2px solid #003049;
+    border-radius: 10px;
+    padding: 1em;
+    max-width: 300px;
+    background: white;
+    margin-top: 0.5em;
+    text-align: left; /* ← Teksten skal stå til venstre */
+  }
+
+  .avatar-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+</style>

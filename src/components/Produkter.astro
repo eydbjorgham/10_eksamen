@@ -1,5 +1,48 @@
 ---
+const { data } = Astro.props;
+console.log(data);
 
+import "../styles/styles.css";
 ---
 
-<style></style>
+<article>
+  <div>
+    <img src={data.images[0]} alt=`Image of ${data.name}` />
+
+    <h2 class="ptekst1">{data.name}</h2>
+    <p class="ptekst">{data.desription1}</p>
+  </div>
+</article>
+
+<style>
+  @media (max-width: 768px) {
+    img {
+      width: 400px;
+    }
+
+    .ptekst1 {
+      padding-left: 0.8em;
+    }
+    .ptekst {
+      padding-left: 1.2em;
+    }
+  }
+
+  @media (min-width: 769px) {
+    img {
+      width: 500px;
+    }
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .ptekst1 {
+    margin-top: 1em;
+    margin-bottom: 0.3em;
+  }
+  .ptekst {
+    margin-bottom: 0.5em;
+  }
+</style>

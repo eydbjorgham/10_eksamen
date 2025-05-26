@@ -1,47 +1,39 @@
 ---
 import "../styles/styles.css";
+import AnmeldCard from "./AnmeldCard.astro";
 ---
 
-<article>
+<article class="anmeldelser">
   <h2>Hvad siger vores kunder?</h2>
-
-  <div class="anmeldelser">
-    <div class="ramme">
-      <div class="a-person">
-        <img class="a-billede" src="/imgs/anmeldelse.webp" alt="" />
-      </div>
+  <div class="cards">
+    <AnmeldCard>
       <h3>Super</h3>
       <p>Selve filteret fylder en smule, men det er det hele værd, fordi det fungerer super. Det er en stor fordel at slippe for kalk i elkedlen og kaffemaskinen, og samtidig smager kaffen meget bedre. En god løsning til renere og mere velsmagende drikkevand!</p>
-    </div>
+    </AnmeldCard>
 
-    <div class="ramme">
-      <div class="a-person">
-        <img class="a-billede" src="/imgs/anmeldelse.webp" alt="" />
-      </div>
+    <AnmeldCard>
       <h3>Spar tid på rensning af vand og flaske</h3>
       <p>Flasken fungerer virkelig godt!! Jeg blev træt af at skulle rense flasker stort set dagligt grundet løbende risiko for forurening af både vand + manglende rensning, hvorfor denne flaske var lige, hvad jeg manglede. Stor anbefaling!</p>
-    </div>
+    </AnmeldCard>
 
-    <div class="ramme">
-      <div class="a-person">
-        <img class="a-billede" src="/imgs/anmeldelse.webp" alt="" />
-      </div>
+    <AnmeldCard>
       <h3>Jeg fik endelig den hjælp jeg havde…</h3>
-      <p>Jeg fik endelig den hjælp jeg havde brug for og medarbejderen var rigtig sød og behjælpelig så jeg vil lige takke Sofie for hendes forståelses og toldmodighed. På den anden side tror jeg jeg har fundet hoved og hale i min vandhane.</p>
-    </div>
+      <p>Jeg fik endelig den hjælp jeg havde brug for og medarbejderen var rigtig sød og behjælpelig så jeg vil lige takke Sofie for hendes forståelse og tålmodighed. På den anden side tror jeg jeg har fundet hoved og hale i min vandhane.</p>
+    </AnmeldCard>
 
-    <div class="ramme">
-      <div class="a-person">
-        <img class="a-billede" src="/imgs/anmeldelse.webp" alt="" />
-      </div>
+    <AnmeldCard>
       <h3>Kæmpe anbefaling</h3>
       <p>Jeg kan varmt anbefale LUMI flasken. Udover at være utrolig flot og praktisk, får du også en kundeservice, der virkelig gør en forskel.</p>
-    </div>
+    </AnmeldCard>
   </div>
 </article>
 
 <style>
   .anmeldelser {
+    margin-top: 2em;
+  }
+
+  .cards {
     display: grid;
     gap: 20px;
     grid-template-columns: 1fr 1fr; /* 2 kolonner på mobil */
@@ -49,24 +41,10 @@ import "../styles/styles.css";
   }
 
   @media (min-width: 769px) {
-    .anmeldelser {
-      grid-template-columns: repeat(4, 1fr); /* 4 kolonner på desktop */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 10px;
     }
-  }
-
-  .ramme {
-    border: 2px solid black;
-    border-radius: 12px;
-    padding: 10px 20px;
-  }
-
-  .a-billede {
-    width: 40%;
-  }
-
-  .a-person {
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 </style>
