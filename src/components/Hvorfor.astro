@@ -14,19 +14,45 @@
 </div>
 
 <style>
-  section {
-    display: grid;
-    grid-template-rows: 1fr;
-    margin: 5em 4em 4em 4em; /* Beholder din indholdsmargin */
+  .wave-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 5em;
   }
 
-  .wave-wrapper {
+  .wave-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
     background-image: url("./imgs/wave.svg");
-    background-size: cover;
+    background-size: auto 100%;
     background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: auto;
+    background-repeat: repeat-x;
+    animation: waveScroll 15s ease-in-out infinite;
+    z-index: 0; /* Bag indholdet */
+  }
+
+  @keyframes waveScroll {
+    from {
+      background-position-x: 0;
+    }
+    to {
+      background-position-x: -100%;
+    }
+  }
+
+  .wave-wrapper section {
+    position: relative;
+    z-index: 1; /* Indhold ligger ovenpå bølgen */
+    display: grid;
+    grid-template-rows: 1fr;
+    padding: 5em 4em 4em 4em;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 
   .forste-hvorfor {
@@ -54,7 +80,7 @@
   }
 
   @media (min-width: 769px) {
-    article {
+    section {
       display: grid;
       grid-template-rows: 1fr;
       margin: 5em 4em 0 4em; /* Beholder din indholdsmargin */

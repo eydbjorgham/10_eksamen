@@ -3,41 +3,71 @@
 ---
 
 <section class="fordele-wrapper">
-  <div class="fordele-kolonne">
-    <img src="./imgs/lumifilterfordele.png" alt="LUMI Pure vandfilter" />
-    <ul class="fordele-liste">
-      <li>Reducerer Pesticider</li>
-      <li>Mindre kalk</li>
-      <li>Ren og frisk smag</li>
-      <li>Færre tungmetaller</li>
-      <li>Beskytter mod bakterier</li>
-    </ul>
-  </div>
-  <div class="ulemper-kolonne">
-    <img src="./imgs/vandhanecons.png" alt="Almindelig vandhane" />
-    <ul class="ulemper-liste">
-      <li>50% indeholder usynlige rester</li>
-      <li>Hårdt vand kan skade nyrer</li>
-      <li>Kan have bismag</li>
-      <li>Kan indeholde bly og kviksølv</li>
-      <li>Kan indeholde mikroorganismer</li>
-    </ul>
+  <div class="fordele-indhold">
+    <div class="fordele-kolonne">
+      <img src="./imgs/lumifilterfordele.png" alt="LUMI Pure vandfilter" />
+      <ul class="fordele-liste">
+        <li>Reducerer Pesticider</li>
+        <li>Mindre kalk</li>
+        <li>Ren og frisk smag</li>
+        <li>Færre tungmetaller</li>
+        <li>Beskytter mod bakterier</li>
+      </ul>
+    </div>
+    <div class="ulemper-kolonne">
+      <img src="./imgs/vandhanecons.png" alt="Almindelig vandhane" />
+      <ul class="ulemper-liste">
+        <li>50% indeholder usynlige rester</li>
+        <li>Hårdt vand kan skade nyrer</li>
+        <li>Kan have bismag</li>
+        <li>Kan indeholde bly og kviksølv</li>
+        <li>Kan indeholde mikroorganismer</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <style>
   .fordele-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 4em 2em;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .fordele-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-image: url("./imgs/wave.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat-x;
+    animation: waveScroll 15s linear infinite;
+  }
+
+  .fordele-indhold {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-rows: 1fr;
-    background-image: url("./imgs/wave.svg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    padding: 4em 2em;
     align-items: center;
     text-align: left;
     gap: 4em;
+  }
+
+  @keyframes waveScroll {
+    from {
+      background-position-x: 0;
+    }
+    to {
+      background-position-x: -100%;
+    }
   }
 
   .fordele-kolonne,
