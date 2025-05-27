@@ -51,6 +51,15 @@
     animation: waveScroll 15s linear infinite;
   }
 
+  @keyframes waveScroll {
+    from {
+      background-position-x: 0;
+    }
+    to {
+      background-position-x: -100%;
+    }
+  }
+
   .fordele-indhold {
     display: grid;
     grid-template-rows: 1fr;
@@ -59,15 +68,6 @@
     align-items: center;
     text-align: left;
     gap: 4em;
-  }
-
-  @keyframes waveScroll {
-    from {
-      background-position-x: 0;
-    }
-    to {
-      background-position-x: -100%;
-    }
   }
 
   .fordele-kolonne,
