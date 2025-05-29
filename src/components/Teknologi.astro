@@ -2,54 +2,92 @@
 import "../styles/styles.css";
 ---
 
-<section>
-  <div class="teknologi">
-    <div class="order">
-      <img class="tbillede" src="/imgs/teknik.webp" alt="" />
-    </div>
+<div class="wave-wrapper">
+  <section>
+    <div class="teknologi">
+      <div class="order">
+        <img class="tbillede" src="/imgs/teknik.webp" alt="" />
+      </div>
 
-    <div class="ttekst">
-      <h2>Teknologien bag Lumi</h2>
-
-      <p>Med sin turbine-hydrauliske strømteknologi genererer LUMI Pure energi til UV-C lyset, hver gang vandet strømmer. Ingen batterier er nødvendige - en praktisk og bæredygtig løsning til rent drikkevand. Denne innovative teknologi sikrer altid sundt, velsmagende og filtreret vand, og den brugervenlige konstruktion gør det nemt at integrere LUMI Pure i din hverdag. Rent vand har aldrig været smartere.</p>
+      <div class="ttekst">
+        <h2>Teknologien bag Lumi</h2>
+        <p>Med sin turbine-hydrauliske strømteknologi genererer LUMI Pure energi til UV-C lyset, hver gang vandet strømmer. Ingen batterier er nødvendige - en praktisk og bæredygtig løsning til rent drikkevand. Denne innovative teknologi sikrer altid sundt, velsmagende og filtreret vand, og den brugervenlige konstruktion gør det nemt at integrere LUMI Pure i din hverdag. Rent vand har aldrig været smartere.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <style>
-  section {
-    background-image: url("/imgs/wave.svg");
-    background-size: cover;
-    aspect-ratio: 1920/833.2;
-    padding-top: 0.5em;
-    padding-bottom: 1em;
-  }
-
-  .teknologi {
-    max-width: 1200px;
+  .wave-wrapper {
+    position: relative;
     width: 100%;
-    margin-inline: auto;
-    padding-left: 1em;
-    padding-right: 1em;
+    overflow: hidden;
+    padding: 10em 0;
   }
 
+  .wave-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-image: url("/imgs/wave.svg");
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: repeat-x;
+    animation: waveScroll 15s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  @keyframes waveScroll {
+    from {
+      background-position-x: 0;
+    }
+    to {
+      background-position-x: -100%;
+    }
+  }
+
+  .wave-wrapper section {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    padding: 5em 1em;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .tbillede {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1em;
+  }
+
+  /* Mobil */
   @media (max-width: 768px) {
     .teknologi {
-      margin-top: 20%;
-      margin-bottom: 20%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2em 1em;
     }
 
     .ttekst {
       padding-top: 1em;
+      margin: 0;
+      width: 100%;
+      max-width: 600px;
+      text-align: left;
     }
   }
 
+  /* Desktop */
   @media (min-width: 769px) {
     .teknologi {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 150px;
-      padding-top: 10em;
     }
 
     .order {

@@ -4,16 +4,16 @@
 
 <div class="nav_bar">
   <div class="logo">
-    <a class="logo" href="/"><img src="imgs/lumi.svg" alt="lumi logo" /></a>
+    <a class="logo" href="/"><img src="/imgs/lumi.svg" alt="lumi logo" /></a>
   </div>
 
   <nav class="navigation">
     <ul class="menu">
       <li><a href="/">Hjem</a></li>
-      <li><a href="/product">Produkter</a></li>
+      <li><a href="/productsite">Produkter</a></li>
       <li><a href="/om">Om</a></li>
     </ul>
-    <a class="vogn" href="#"><img src="imgs/vogn.webp" alt="indkøbsvogn" /></a>
+    <a class="vogn" href="#"><img src="/imgs/vogn.webp" alt="indkøbsvogn" /></a>
 
     <div class="burger">
       <div class="line"></div>
@@ -107,6 +107,12 @@
     display: none; /** Fjerner burger dekstop */
   }
 
+  @media screen and (max-width: 1100px) {
+    .logo img {
+      width: 18%; /** Størrelse på logo */
+    }
+  }
+
   /** MOBILFORMAT */
   @media screen and (max-width: 980px) {
     /** VOGN */
@@ -117,6 +123,10 @@
     /** MENU */
     .menu {
       display: none; /** Menu skjules */
+    }
+
+    .logo img {
+      width: 30%; /** Størrelse på logo */
     }
 
     /** BURGER */
@@ -164,6 +174,16 @@
     .navigation {
       display: flex; /** På linje m kurv */
       margin-right: 2em;
+    }
+  }
+
+  @media screen and (max-width: 980px) {
+    .burger {
+      margin-top: 0.7em;
+    }
+
+    .vogn {
+      margin-top: -1em;
     }
   }
 </style>

@@ -1,0 +1,266 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/styles.css";
+import Button from "../../components/Button.astro";
+import Banner from "../../components/Banner.astro";
+import Navbar from "../../components/Navbar.astro";
+import Optimering from "../../components/Optimering.astro";
+import Teknologi from "../../components/Teknologi.astro";
+import Forurening from "../../components/Forurening.astro";
+import Anmeldelser from "../../components/Anmeldelser.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  const data = await fetch("https://frizcejgsvbkqyhikump.supabase.co/rest/v1/Lumi", {
+    method: "GET",
+    headers: {
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaXpjZWpnc3Zia3F5aGlrdW1wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgyNTc1NDYsImV4cCI6MjA2MzgzMzU0Nn0.VE_NVmA4CjCeMtV2eeHbF-YYfobYjhQoiXbeJ-QEIKc",
+    },
+  }).then((response) => response.json());
+
+  return data.map((filter) => {
+    return {
+      params: { slug: filter.slug },
+      props: { myData: filter },
+    };
+  });
+}
+const { myData } = Astro.props;
+console.log(myData);
+
+let discout = 0.3;
+---
+
+<Layout title={myData.name}>
+  <Banner />
+  <Navbar />
+  <article>
+    <div class="product-container">
+      <div class="image-section">
+        <div class="slideshow_container">
+          <div class="mySlides fade">
+            <img src={myData.images[0]} alt="Billede 0" />
+          </div>
+          <div class="mySlides fade">
+            <img src={myData.images[1]} alt="Billede 1" />
+          </div>
+          <div class="mySlides fade">
+            <img src={myData.images[2]} alt="Billede 2" />
+          </div>
+          <div class="mySlides fade">
+            <img src={myData.images[3]} alt="Billede 3" />
+          </div>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div class="slideshow-dots">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h1>{myData.name}</h1>
+
+        <h2>Pris</h2>
+        <p class="old-price">{myData.price} kr.</p>
+        <p class="new-price">{parseInt(myData.price * (1 - discout))} kr.</p>
+
+        <h2>Indeholder</h2>
+        <p>{myData.description2}</p>
+
+        <h2>Medfølgende tilbehør</h2>
+        <ul>
+          {myData.tags.map((element) => <li>{element}</li>)}
+        </ul>
+
+        <a href="#">
+          <Button text="Læg i kurv" variant="dark" />
+        </a>
+      </div>
+    </div>
+  </article>
+  <Optimering />
+  <Teknologi />
+  <Forurening />
+  <Anmeldelser />
+  <Footer />
+</Layout>
+
+<style>
+  .product-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #bfdbe8;
+    border-radius: 2em;
+    margin: 2em;
+    padding: 2em;
+    align-items: center;
+    gap: 2em;
+  }
+
+  .image-section {
+    text-align: center;
+    position: relative;
+  }
+
+  .info-section {
+    padding: 1em 2em;
+    font-family: sans-serif;
+  }
+
+  .info-section h1 {
+    font-size: 2rem;
+    margin-bottom: 1em;
+  }
+
+  .info-section h2 {
+    font-size: 1.5rem;
+    margin: 1em 0 0.5em;
+  }
+
+  .old-price {
+    text-decoration: line-through;
+    color: #555;
+    font-size: 1.2rem;
+  }
+
+  .new-price {
+    color: #003f5b;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+  }
+
+  .info-section ul {
+    margin-left: 1em;
+    margin-bottom: 1.5em;
+    list-style-type: disc;
+  }
+
+  .slideshow_container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 2em;
+    overflow: hidden;
+  }
+
+  .mySlides {
+    display: none;
+  }
+
+  .mySlides img {
+    width: 100%;
+    display: block;
+    border-radius: 1em;
+  }
+
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: transparent;
+    color: #003f5b;
+    z-index: 10;
+  }
+
+  .prev {
+    left: 1px;
+  }
+
+  .next {
+    right: 1px;
+  }
+
+  .slideshow-dots {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+    background-color: #50798e;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+
+  .active,
+  .dot:hover {
+    background-color: #003f5b;
+  }
+
+  @media (max-width: 768px) {
+    .product-container {
+      grid-template-columns: 1fr;
+      padding: 1em;
+    }
+
+    .info-section {
+      padding: 1em;
+    }
+
+    .prev {
+      left: -10px;
+    }
+
+    .next {
+      right: -10px;
+    }
+
+    .slideshow_container {
+      max-width: 90%;
+    }
+
+    .slideshow-dots {
+      margin-top: 8px;
+      margin-bottom: 15px;
+    }
+  }
+</style>
+
+<script is:inline>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides((slideIndex += n));
+  }
+
+  function currentSlide(n) {
+    showSlides((slideIndex = n));
+  }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+  }
+</script>
