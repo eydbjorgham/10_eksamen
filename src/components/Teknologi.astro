@@ -10,7 +10,7 @@ import "../styles/styles.css";
       </div>
 
       <div class="ttekst">
-        <h2>Teknologien bag Lumi</h2>
+        <h2>Teknologien bag LUMI</h2>
         <p>Med sin turbine-hydrauliske strømteknologi genererer LUMI Pure energi til UV-C lyset, hver gang vandet strømmer. Ingen batterier er nødvendige - en praktisk og bæredygtig løsning til rent drikkevand. Denne innovative teknologi sikrer altid sundt, velsmagende og filtreret vand, og den brugervenlige konstruktion gør det nemt at integrere LUMI Pure i din hverdag. Rent vand har aldrig været smartere.</p>
       </div>
     </div>
@@ -21,12 +21,12 @@ import "../styles/styles.css";
   .wave-wrapper {
     position: relative;
     width: 100%;
-    overflow: hidden;
-    padding: 10em 0;
+    overflow: hidden; /* Skjuler det udenfor containeren */
+    padding: 10em 0; /* Lodret luft */
   }
 
   .wave-wrapper::before {
-    content: "";
+    content: ""; /* Tilføjer bølgegrafik */
     position: absolute;
     top: 0;
     left: 0;
@@ -36,8 +36,8 @@ import "../styles/styles.css";
     background-size: auto 100%;
     background-position: center;
     background-repeat: repeat-x;
-    animation: waveScroll 15s ease-in-out infinite;
-    z-index: 0;
+    animation: waveScroll 20s linear infinite; /* Giver bevægelse */
+    z-index: 0; /* Bølgens lag er bagved */
   }
 
   @keyframes waveScroll {
@@ -45,15 +45,15 @@ import "../styles/styles.css";
       background-position-x: 0;
     }
     to {
-      background-position-x: -100%;
+      background-position-x: -100%; /* Bølge glider mod venstre */
     }
   }
 
   .wave-wrapper section {
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Indhold ligger over bølgen */
     display: grid;
-    padding: 5em 1em;
+    padding: 0 1em;
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -61,13 +61,13 @@ import "../styles/styles.css";
   .tbillede {
     max-width: 100%;
     height: auto;
-    border-radius: 1em;
+    border-radius: 1em; /* Runde hjørner */
   }
 
   /* Mobil */
   @media (max-width: 768px) {
     .teknologi {
-      display: flex;
+      display: flex; /* Lodret layout */
       flex-direction: column;
       align-items: center;
       padding: 2em 1em;
@@ -86,13 +86,13 @@ import "../styles/styles.css";
   @media (min-width: 769px) {
     .teknologi {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; /* 2 kolonner */
       gap: 150px;
     }
 
     .order {
       display: block;
-      order: +1;
+      order: +1; /* Flytter billede til højre */
       padding-right: 20px;
     }
 

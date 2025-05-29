@@ -11,31 +11,32 @@ const { text, variant } = Astro.props;
     display: inline-block;
     padding: 1em;
     text-align: center;
-    cursor: pointer;
-    border-radius: 8px;
+    cursor: pointer; /* Gør musen til hånd */
+    border-radius: 8px; /* Runde hjørner */
     margin: 0.5em;
-    border: 2px solid transparent; /* Usynlig kant til at starte med */
-    transition: all 0.3s ease; /* Glidende overgang */
+    border: 2px solid transparent; /* Usynlig kant */
+    transition: all 0.3s ease; /* Blød effekt */
+    font-size: 0.9em;
   }
 
   .light {
     color: #003f5b;
-    background-color: #aac2d2;
+    background-color: #bfdbe8;
   }
 
   .dark {
     background-color: #003f5b;
-    color: #ffffff;
+    color: #bfdbe8;
   }
 
   .light:hover {
     background-color: #003f5b;
-    color: #aac2d2;
+    color: #bfdbe8;
   }
 
   .dark:hover {
-    background-color: #aac2d2;
+    background-color: #bfdbe8;
     color: #3b3737;
-    border-color: #003f5b;
+    border-color: #003f5b; /* Viser kant ved hover */
   }
 </style>

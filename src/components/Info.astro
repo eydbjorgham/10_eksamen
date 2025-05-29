@@ -1,5 +1,5 @@
 ---
-
+import "../styles/styles.css";
 ---
 
 <article class="info-tekst">
@@ -16,27 +16,27 @@
 <style>
   article {
     display: grid;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr; /* Én række (mobil) */
     gap: 0.5em;
     align-items: center;
-    margin-top: 6em;
+    margin-top: 6em; /* Luft over */
   }
 
   article img {
-    width: 100%;
+    width: 100%; /* Fylder containeren */
     height: auto;
-    display: block;
+    display: block; /* Fjerner mellemrum under billedet */
   }
 
   .info-tekst {
-    line-height: 1.8;
+    line-height: 1.8; /* Luft mellem linjer */
     color: #003f5b;
   }
 
   @media (min-width: 769px) {
     article {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; /* To kolonner på større skærm */
       gap: 4em;
     }
   }

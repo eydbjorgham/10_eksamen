@@ -5,13 +5,13 @@
 <article class="vvs-wrapper">
   <div class="vvs-tekst">
     <h1>Drikker du rent vand?</h1>
-    <p>Hos Lumi har vi talt med Lars C. Nielsen, ekspert inden for vand og stifter af Øens VVS på Amager. Med mange års erfaring i feltet ved Lars, hvor stor en forskel rent drikkevand gør – ikke kun for helbredet, men også for hverdagen.</p>
+    <p>Hos LUMI har vi talt med Lars C. Nielsen, ekspert inden for vand og stifter af Øens VVS på Amager. Med mange års erfaring i feltet ved Lars, hvor stor en forskel rent drikkevand gør – ikke kun for helbredet, men også for hverdagen.</p>
   </div>
   <div class="vvs-tekst2">
     <p>I interviewet sætter han ord på, hvorfor rent vand ikke er en selvfølge i Danmark, og hvad du som forbruger kan gøre for at sikre bedre vandkvalitet i dit eget hjem. "For når vi passer på vores drikkevand, så passer vi også på hinanden. siger Lars C. Nielsen.</p>
   </div>
   <div class="vvs-video">
-    <video src="../public/vids/vvs_vid.mp4" controls></video>
+    <video src="/vids/vvs_vid.webm" controls></video>
   </div>
 </article>
 
@@ -19,17 +19,20 @@
   .vvs-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrerer alt horisontalt */
-    text-align: center;
-    gap: 2em;
+    align-items: center; /* Centrerer horisontalt */
+    gap: 2em; /* Mellemrum mellem elementer */
     padding: 5em 2em;
+  }
+
+  h1 {
+    text-align: center; /* Midtstiller overskrift */
   }
 
   .vvs-tekst,
   .vvs-tekst2 {
     max-width: 800px;
     color: #003f5b;
-    line-height: 1.7;
+    line-height: 1.7; /* Luft mellem linjer */
   }
 
   .vvs-tekst h1 {
@@ -37,18 +40,18 @@
   }
 
   .vvs-tekst2 p {
-    font-style: italic;
+    font-style: italic; /* Kursiv tekst */
   }
 
   .vvs-video {
-    width: 75vw; /* Fylder hele skærmens bredde */
+    width: 75vw; /* 75% af skærmens bredde */
   }
 
   .vvs-video video {
     width: 100%;
     height: auto;
-    max-width: none; /* Fjern begrænsningen */
-    border-radius: 15px; /* Valgfrit – eller behold afrunding */
+    max-width: none;
+    border-radius: 15px; /* Runde hjørner */
     display: block;
   }
 </style>

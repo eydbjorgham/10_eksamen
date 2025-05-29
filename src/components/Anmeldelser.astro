@@ -30,21 +30,21 @@ import AnmeldCard from "./AnmeldCard.astro";
 
 <style>
   .anmeldelser {
-    margin-top: 2em;
+    margin-top: 2em; /* Luft over */
   }
 
   .cards {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr 1fr; /* 2 kolonner på mobil */
-    padding-bottom: 1rem;
+    display: grid; /* Grid-layout */
+    gap: 20px; /* Mellemrum mellem kort */
+    grid-template-columns: 1fr 1fr; /* 2 kolonner */
+    padding-bottom: 1rem; /* Luft under */
   }
 
   @media (min-width: 769px) {
     .cards {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 10px;
+      grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 kolonner på større skærm */
+      gap: 10px; /* Mindre mellemrum */
     }
   }
 </style>

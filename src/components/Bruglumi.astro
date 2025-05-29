@@ -6,10 +6,12 @@ import "../styles/styles.css";
   <section>
     <div class="bruglumi">
       <div class="order">
+        <!-- Billede -->
         <img class="bbillede" src="/imgs/glasvandhane.webp" alt="" />
       </div>
 
       <div class="btekst">
+        <!-- Overskrift og tekst -->
         <h2>Hvorfor bruge LUMI Pure</h2>
         <p>LUMI Pure's avancerede filtrering fjerner bakterier og reducerer pesticider, PFAS, kalk og tungmetallerfjerner, hvilket giver dig en sund drikkeoplevelse. Den digitale skærm viser både vandets temperatur og filterets levetid, så du altid er opdateret. Installation tager kun 1-2 minutter, og det elegante design passer perfekt i ethvert køkken. Med LUMI Pure vælger du en løsning, der er en investering i dig og din families sundhed.</p>
       </div>
@@ -22,11 +24,11 @@ import "../styles/styles.css";
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding: 10em 0;
+    padding: 10em 0; /* Lodret luft */
   }
 
   .wave-wrapper::before {
-    content: "";
+    content: ""; /* Tilføjer bølgen */
     position: absolute;
     top: 0;
     left: 0;
@@ -36,8 +38,8 @@ import "../styles/styles.css";
     background-size: auto 100%;
     background-position: center;
     background-repeat: repeat-x;
-    animation: waveScroll 15s ease-in-out infinite;
-    z-index: 0;
+    animation: waveScroll 20s linear infinite; /* Bølgebevægelse */
+    z-index: 0; /* Lægger bagved */
   }
 
   @keyframes waveScroll {
@@ -45,15 +47,15 @@ import "../styles/styles.css";
       background-position-x: 0;
     }
     to {
-      background-position-x: -100%;
+      background-position-x: -100%; /* Flytter bølgen til venstre */
     }
   }
 
   .wave-wrapper section {
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Over bølgen */
     display: grid;
-    padding: 5em 1em;
+    padding: 0 1em;
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -61,13 +63,13 @@ import "../styles/styles.css";
   .bbillede {
     max-width: 100%;
     height: auto;
-    border-radius: 1em;
+    border-radius: 1em; /* Runde hjørner */
   }
 
   /* Mobil */
   @media (max-width: 768px) {
     .bruglumi {
-      display: flex;
+      display: flex; /* Lodret layout */
       flex-direction: column;
       align-items: center;
       padding: 2em 1em;
@@ -86,8 +88,8 @@ import "../styles/styles.css";
   @media (min-width: 769px) {
     .bruglumi {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 150px;
+      grid-template-columns: 1fr 1fr; /* 2 kolonner */
+      gap: 150px; /* Mellemrum */
     }
 
     .order {
