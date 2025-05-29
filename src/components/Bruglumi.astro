@@ -1,5 +1,104 @@
 ---
-
+import "../styles/styles.css";
 ---
 
-<style></style>
+<div class="wave-wrapper">
+  <section>
+    <div class="bruglumi">
+      <div class="order">
+        <img class="bbillede" src="/imgs/glasvandhane.webp" alt="" />
+      </div>
+
+      <div class="btekst">
+        <h2>Hvorfor bruge LUMI Pure</h2>
+        <p>LUMI Pure's avancerede filtrering fjerner bakterier og reducerer pesticider, PFAS, kalk og tungmetallerfjerner, hvilket giver dig en sund drikkeoplevelse. Den digitale skærm viser både vandets temperatur og filterets levetid, så du altid er opdateret. Installation tager kun 1-2 minutter, og det elegante design passer perfekt i ethvert køkken. Med LUMI Pure vælger du en løsning, der er en investering i dig og din families sundhed.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  .wave-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 10em 0;
+  }
+
+  .wave-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-image: url("/imgs/wave.svg");
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: repeat-x;
+    animation: waveScroll 15s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  @keyframes waveScroll {
+    from {
+      background-position-x: 0;
+    }
+    to {
+      background-position-x: -100%;
+    }
+  }
+
+  .wave-wrapper section {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    padding: 5em 1em;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .bbillede {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1em;
+  }
+
+  /* Mobil */
+  @media (max-width: 768px) {
+    .bruglumi {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2em 1em;
+    }
+
+    .btekst {
+      padding-top: 1em;
+      margin: 0;
+      width: 100%;
+      max-width: 600px;
+      text-align: left;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 769px) {
+    .bruglumi {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 150px;
+    }
+
+    .order {
+      display: block;
+      order: +1;
+      padding-right: 20px;
+    }
+
+    .btekst {
+      margin-top: 35px;
+      margin-left: 70px;
+    }
+  }
+</style>

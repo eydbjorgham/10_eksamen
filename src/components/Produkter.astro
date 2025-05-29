@@ -1,8 +1,8 @@
 ---
 const { data } = Astro.props;
-console.log(data);
 
 import "../styles/styles.css";
+import Button from "./Button.astro";
 ---
 
 <article>
@@ -10,14 +10,18 @@ import "../styles/styles.css";
     <img src={data.images[0]} alt=`Image of ${data.name}` />
 
     <h2 class="ptekst1">{data.name}</h2>
-    <p class="ptekst">{data.desription1}</p>
+    <p class="ptekst">{data.description1}</p>
   </div>
+
+  <a href={`produkt/${data.slug}`}>
+    <Button text="Køb her" variant="light" />
+  </a>
 </article>
 
 <style>
   @media (max-width: 768px) {
     img {
-      width: 400px;
+      width: 100%;
     }
 
     .ptekst1 {
