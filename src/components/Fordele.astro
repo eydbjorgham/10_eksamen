@@ -5,7 +5,7 @@
 <section class="wave-wrapper">
   <div class="fordele-indhold">
     <div class="fordele-kolonne">
-      <img src="/imgs/lumifilterfordele.png" alt="LUMI Pure vandfilter" />
+      <img src="/imgs/lumifilterfordele.webp" alt="LUMI Pure vandfilter" />
       <ul class="fordele-liste">
         <li>Reducerer Pesticider</li>
         <li>Mindre kalk</li>
@@ -15,7 +15,7 @@
       </ul>
     </div>
     <div class="ulemper-kolonne">
-      <img src="/imgs/vandhanecons.png" alt="Almindelig vandhane" />
+      <img src="/imgs/vandhanecons.webp" alt="Almindelig vandhane" />
       <ul class="ulemper-liste">
         <li>50% indeholder usynlige rester</li>
         <li>Hårdt vand kan skade nyrer</li>
@@ -32,7 +32,7 @@
     position: relative;
     width: 100%;
     height: auto;
-    padding: 4em 2em;
+    padding: 10em 2em;
     overflow: hidden;
     z-index: 0;
   }
@@ -51,16 +51,6 @@
     animation: waveScroll 15s linear infinite;
   }
 
-  .fordele-indhold {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-rows: 1fr;
-    align-items: center;
-    text-align: left;
-    gap: 4em;
-  }
-
   @keyframes waveScroll {
     from {
       background-position-x: 0;
@@ -68,6 +58,16 @@
     to {
       background-position-x: -100%;
     }
+  }
+
+  .fordele-indhold {
+    display: grid;
+    grid-template-rows: 1fr;
+    position: relative;
+    z-index: 1;
+    align-items: center;
+    text-align: left;
+    gap: 4em;
   }
 
   .fordele-kolonne,
@@ -108,6 +108,10 @@
   }
 
   @media (min-width: 769px) {
+    .wave-wrapper {
+      padding: 8em 2em;
+    }
+
     .fordele-indhold {
       display: grid;
       grid-template-columns: 1fr 1fr;
