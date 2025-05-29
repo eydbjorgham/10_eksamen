@@ -1,66 +1,76 @@
 ---
-
+import "../styles/styles.css";
 ---
 
 <section>
-  <div>
-    <img src="/imgs/lumi_ejere.webp" alt="Lumis Ejere" />
-  </div>
-  <div>
-    <h2>Lumis historie</h2>
-    <p>
-      LUMI blev skabt for at imødegå de udfordringer, vi står over for med vores drikkevand. Ny forskning fra Københavns Universitet har afsløret hidtil uopdagede kemikalier i dansk drikkevand. Over 50% af Danmarks drikkevandskilder er forurenet af pesticider og industrielle kemikalier, og mere end 10% overskrider sikkerhedsgrænserne.
-      <br /><br />
+  <div class="section_grid">
+    <div>
+      <img class="lumi_ejere" src="/imgs/lumi_ejere.webp" alt="Lumis Ejere" />
+    </div>
+    <div>
+      <h2>LUMI's historie</h2>
+      <p>
+        LUMI blev skabt for at imødegå de udfordringer, vi står over for med vores drikkevand. Ny forskning fra Københavns Universitet har afsløret hidtil uopdagede kemikalier i dansk drikkevand. Over 50% af Danmarks drikkevandskilder er forurenet af pesticider og industrielle kemikalier, og mere end 10% overskrider sikkerhedsgrænserne.
+        <br /><br />
 
-      Dette gør rent drikkevand til en udfordring. Vores UV-lys teknologi eliminerer 99,99% af skadelige bakterier og vira, så du kan føle dig tryg ved at drikke vand fra LUMI flasken.
-    </p>
+        Dette gør rent drikkevand til en udfordring. Vores UV-lys teknologi eliminerer 99,99% af skadelige bakterier og vira, så du kan føle dig tryg ved at drikke vand fra LUMI flasken.
+      </p>
+    </div>
   </div>
 </section>
 
 <style>
-  .lumi_ejere {
-    width: 70%;
-    display: block;
-    margin: 0 auto;
-    padding-top: 2rem;
-    margin-bottom: 2rem;
-    margin-left: 3.5em;
-  }
   section {
-    background: rgba(0, 113, 164, 0.25);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background: rgba(0, 113, 164, 0.25); /* Let blå baggrund */
   }
 
   h2 {
     margin-left: 1.5rem;
-    font-weight: 700;
+    font-weight: 700; /* Fed tekst */
   }
+
   p {
     margin-left: 1.5rem;
     margin-top: 0.5rem;
-    line-height: 22px;
+    line-height: 22px; /* Afstand mellem linjer */
     padding-bottom: 2rem;
     margin-right: 0.5rem;
   }
 
-  @media (min-width: 600px) {
-    section {
+  @media (min-width: 769px) {
+    .section_grid {
+      margin-inline: 3em;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      grid-template-columns: 1fr 1fr; /* 2 kolonner på større skærm */
+      gap: 20px;
     }
+
     .lumi_ejere {
-      width: 60%;
-      margin-top: 8rem;
-      margin-bottom: 8rem;
+      width: 70%;
+      margin-top: 4rem;
+      margin-bottom: 4rem;
       margin-left: 10em;
     }
+
     h2 {
-      margin-top: 11rem;
+      margin-top: 8rem; /* Rykker overskrift længere ned */
     }
+
     p {
       line-height: 30px;
       margin-right: 9rem;
       margin-top: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .lumi_ejere {
+      width: 80%;
+      margin-top: 0rem;
+      margin-bottom: 1rem;
+      margin-left: 2em;
     }
   }
 </style>

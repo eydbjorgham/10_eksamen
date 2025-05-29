@@ -9,16 +9,23 @@ import Anmeldelser from "../components/Anmeldelser.astro";
 import Footer from "../components/Footer.astro";
 import Button from "../components/Button.astro";
 
+// Link til hvor vi henter data fra (et API)
 const url = "https://frizcejgsvbkqyhikump.supabase.co/rest/v1/Lumi";
+
+// API-nøgle som giver os adgang til dataene
 const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaXpjZWpnc3Zia3F5aGlrdW1wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgyNTc1NDYsImV4cCI6MjA2MzgzMzU0Nn0.VE_NVmA4CjCeMtV2eeHbF-YYfobYjhQoiXbeJ-QEIKc";
 
+// Fortæller hvilken nøgle vi bruger
 const options = {
   headers: {
     apikey: key,
   },
 };
 
+// Henter data fra databasen (fetch sender en forespørgsel)
 const request = await fetch(url, options);
+
+// Laver svaret om til et læsbart format (JSON)
 const rawData = await request.json();
 ---
 
@@ -27,10 +34,13 @@ const rawData = await request.json();
   <Navbar />
 
   <article>
+    <!-- Overskrift -->
     <h1 class="ptekst1">Produkter</h1>
 
+    <!-- Container med grid-layout til produkter -->
     <div class="pgrid">
       {
+        // For hvert produkt i data, vis et <Produkter> komponent
         rawData.map((element) => {
           return <Produkter data={element} />;
         })
@@ -49,12 +59,14 @@ const rawData = await request.json();
     margin-bottom: 1em;
   }
 
+  /* På mobil: ryk overskriften lidt ind */
   @media (max-width: 768px) {
     .ptekst1 {
       padding-left: 1.2em;
     }
   }
 
+  /* På større skærme: vis produkterne i 2 kolonner med afstand imellem */
   @media (min-width: 769px) {
     .pgrid {
       display: grid;

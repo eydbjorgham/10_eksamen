@@ -1,6 +1,10 @@
 ---
+// Vi henter layoutet og designet, som hele siden skal bruge
 import Layout from "../../layouts/Layout.astro";
+// Vi henter vores CSS-styling
 import "../../styles/styles.css";
+
+// Her importerer vi forskellige komponenter (dele af siden), som vi bruger senere
 import Button from "../../components/Button.astro";
 import Banner from "../../components/Banner.astro";
 import Navbar from "../../components/Navbar.astro";
@@ -10,14 +14,17 @@ import Forurening from "../../components/Forurening.astro";
 import Anmeldelser from "../../components/Anmeldelser.astro";
 import Footer from "../../components/Footer.astro";
 
+// Denne funktion henter produktdata fra en database og gør dem klar til brug
 export async function getStaticPaths() {
   const data = await fetch("https://frizcejgsvbkqyhikump.supabase.co/rest/v1/Lumi", {
     method: "GET",
     headers: {
       apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZyaXpjZWpnc3Zia3F5aGlrdW1wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgyNTc1NDYsImV4cCI6MjA2MzgzMzU0Nn0.VE_NVmA4CjCeMtV2eeHbF-YYfobYjhQoiXbeJ-QEIKc",
+      // Her bruger vi en nøgle til at få adgang til data
     },
   }).then((response) => response.json());
 
+  // Vi laver en "sti" for hvert produkt baseret på dets 'slug' (unik identifikator)
   return data.map((filter) => {
     return {
       params: { slug: filter.slug },
@@ -25,10 +32,12 @@ export async function getStaticPaths() {
     };
   });
 }
-const { myData } = Astro.props;
-console.log(myData);
 
-let discout = 0.3;
+// Henter produktdata som vi fik i 'getStaticPaths'
+const { myData } = Astro.props;
+
+// Bruges til at regne rabat på prisen
+let discout = 0.3; // 30% rabat
 ---
 
 <Layout title={myData.name}>
@@ -92,18 +101,19 @@ let discout = 0.3;
 <style>
   .product-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* To kolonner: billede og info */
     background-color: #bfdbe8;
     border-radius: 2em;
-    margin: 2em;
     padding: 2em;
-    align-items: center;
+    align-items: center; /* Centrer indholdet lodret */
     gap: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
   }
 
   .image-section {
     text-align: center;
-    position: relative;
+    position: relative; /* Gør det muligt at placere pile inde i boksen */
   }
 
   .info-section {
@@ -112,25 +122,21 @@ let discout = 0.3;
   }
 
   .info-section h1 {
-    font-size: 2rem;
     margin-bottom: 1em;
   }
 
   .info-section h2 {
-    font-size: 1.5rem;
     margin: 1em 0 0.5em;
   }
 
   .old-price {
-    text-decoration: line-through;
+    text-decoration: line-through; /* Vis at det er en gammel pris */
     color: #555;
-    font-size: 1.2rem;
   }
 
   .new-price {
     color: #003f5b;
     font-weight: bold;
-    font-size: 1.5rem;
     margin-bottom: 1em;
   }
 
@@ -141,16 +147,16 @@ let discout = 0.3;
   }
 
   .slideshow_container {
-    position: relative;
+    position: relative; /* Gør det muligt at placere ting ovenpå billedet */
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
     border-radius: 2em;
-    overflow: hidden;
+    overflow: hidden; /* Skjul dele af billeder, der går udenfor rammen */
   }
 
   .mySlides {
-    display: none;
+    display: none; /* Billederne starter som skjulte */
   }
 
   .mySlides img {
@@ -162,23 +168,23 @@ let discout = 0.3;
   .prev,
   .next {
     cursor: pointer;
-    position: absolute;
+    position: absolute; /* Placér pilene oven på billedet */
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); /* Justér så pilen sidder midt på højden */
     padding: 16px;
     font-size: 18px;
     font-weight: bold;
     background-color: transparent;
     color: #003f5b;
-    z-index: 10;
+    z-index: 10; /* Sørg for at pilene er øverst */
   }
 
   .prev {
-    left: 1px;
+    left: 1px; /* Placér venstre pil tæt på kanten */
   }
 
   .next {
-    right: 1px;
+    right: 1px; /* Placér højre pil tæt på kanten */
   }
 
   .slideshow-dots {
@@ -193,19 +199,20 @@ let discout = 0.3;
     width: 12px;
     margin: 0 4px;
     background-color: #50798e;
-    border-radius: 50%;
+    border-radius: 50%; /* Gør prikkerne runde */
     display: inline-block;
     transition: background-color 0.3s;
   }
 
   .active,
   .dot:hover {
-    background-color: #003f5b;
+    background-color: #003f5b; /* Fremhæv den aktive prik */
   }
 
+  /* Mobilvenlig version */
   @media (max-width: 768px) {
     .product-container {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr; /* Skift til én kolonne på små skærme */
       padding: 1em;
     }
 
@@ -214,7 +221,7 @@ let discout = 0.3;
     }
 
     .prev {
-      left: -10px;
+      left: -10px; /* Ryk pilen længere ud til kanten */
     }
 
     .next {
@@ -222,45 +229,67 @@ let discout = 0.3;
     }
 
     .slideshow_container {
-      max-width: 90%;
+      max-width: 90%; /* Gør slideshowet næsten fuld bredde */
     }
 
     .slideshow-dots {
       margin-top: 8px;
       margin-bottom: 15px;
     }
+
+    .dot {
+      height: 8px;
+      width: 8px; /* Mindre prikker på mobil */
+    }
   }
 </style>
-
 <script is:inline>
+  // Starter slideshowet ved slide nr. 1
   let slideIndex = 1;
-  showSlides(slideIndex);
+  showSlides(slideIndex); // Viser første billede når siden indlæses
 
+  // Funktion til at gå frem eller tilbage i slideshowet
   function plusSlides(n) {
-    showSlides((slideIndex += n));
+    slideIndex += n; // Ændrer tallet (f.eks. +1 eller -1)
+    showSlides(slideIndex); // Viser det nye slide
   }
 
+  // Funktion til at hoppe direkte til et bestemt slide (f.eks. ved klik på prik)
   function currentSlide(n) {
-    showSlides((slideIndex = n));
+    slideIndex = n;
+    showSlides(slideIndex); // Viser det valgte slide
   }
 
+  // Funktion der viser det aktuelle slide og skjuler resten
   function showSlides(n) {
     let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
+    let slides = document.getElementsByClassName("mySlides"); // Henter alle slides (billeder)
+    let dots = document.getElementsByClassName("dot"); // Henter prikkerne under billederne
+
+    // Hvis man bladrer for langt frem, starter den forfra
     if (n > slides.length) {
       slideIndex = 1;
     }
+
+    // Hvis man går før første slide, hopper den til sidste
     if (n < 1) {
       slideIndex = slides.length;
     }
+
+    // Skjuler alle slides
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }
+
+    // Fjerner "active" klassen fra alle prikker
     for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
     }
+
+    // Viser det valgte slide (det ene billede der skal være synligt)
     slides[slideIndex - 1].style.display = "block";
+
+    // Giver prikken under det valgte billede klassen "active" (så den ser anderledes ud)
     dots[slideIndex - 1].className += " active";
   }
 </script>

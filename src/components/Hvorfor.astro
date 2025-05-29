@@ -1,5 +1,5 @@
 ---
-
+import "../styles/styles.css";
 ---
 
 <div class="wave-wrapper">
@@ -16,7 +16,9 @@
         <h2>Ved du, hvad der er i dit vand?</h2>
         <p>Kalk, pesticider og tungmetaller er blandt de mest skadelige stoffer, der kan påvirke din krop negativt. Mange danskere drikker dagligt vand, der indeholder disse stoffer, uden at tænke over de potentielle konsekvenser. Rent vand er essentielt for din krop og din hverdag. Prioriter din sundhed – start med dit vand!</p>
       </div>
-      <img class="billede2" src="/imgs/emmadrik.webp" alt="Kvinde drikker vand" />
+      <div>
+        <img class="billede2" src="/imgs/emmadrik.webp" alt="Kvinde drikker vand" />
+      </div>
     </div>
   </section>
 </div>
@@ -25,12 +27,12 @@
   .wave-wrapper {
     position: relative;
     width: 100%;
-    overflow: hidden;
-    padding: 8em;
+    overflow: hidden; /* Skjuler bølge udenfor feltet */
+    padding: 2em;
   }
 
   .wave-wrapper::before {
-    content: "";
+    content: ""; /* Tilføjer bølgegrafik */
     position: absolute;
     top: 0;
     left: 0;
@@ -40,8 +42,8 @@
     background-size: auto 100%;
     background-position: center;
     background-repeat: repeat-x;
-    animation: waveScroll 10s linear infinite;
-    z-index: 0; /* Bag indholdet */
+    animation: waveScroll 8s linear infinite; /* Bevæg bølgen */
+    z-index: 0; /* Lægger sig bag indhold */
   }
 
   @keyframes waveScroll {
@@ -49,72 +51,74 @@
       background-position-x: 0;
     }
     to {
-      background-position-x: -100%;
+      background-position-x: -100%; /* Bølge ruller til venstre */
     }
   }
 
   .wave-wrapper section {
     position: relative;
-    z-index: 1; /* Indhold ligger ovenpå bølgen */
+    z-index: 1; /* Indhold vises over bølgen */
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr; /* To rækker */
     gap: 2em;
     max-width: 1400px;
     margin: 0 auto;
-  }
-
-  .forste-hvorfor {
-    display: grid;
-    grid-template-rows: 1fr;
-    gap: 1em;
-  }
-
-  .naeste-hvorfor {
-    display: grid;
-    grid-template-rows: 1fr;
-    gap: 1em;
   }
 
   .naeste-hvorfor img,
   .forste-hvorfor img {
     width: 90%;
     margin: 0 auto;
+    margin-bottom: 0.5em;
   }
 
   .naeste-hvorfor p,
   .forste-hvorfor p {
-    line-height: 1.7;
+    line-height: 1.7; /* Luft mellem linjer */
   }
 
-  .tekst-kolonne2 {
-    order: 2;
+  /* Mobil */
+  @media (max-width: 768px) {
+    .forste-hvorfor {
+      margin-top: 8em;
+    }
+
+    .naeste-hvorfor {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tekst-kolonne2 {
+      order: 2; /* Viser tekst efter billede */
+    }
+
+    .billede2 {
+      order: 1; /* Viser billede først */
+    }
   }
 
-  .billede2 {
-    order: 1;
-  }
-
+  /* Desktop */
   @media (min-width: 769px) {
+    .wave-wrapper {
+      padding: 8em;
+    }
+
     .wave-wrapper section {
       display: grid;
       grid-template-rows: 1fr 1fr;
-      margin: 5em 4em 0 4em; /* Beholder din indholdsmargin */
+      margin: 5em 4em 0 6em;
     }
 
     .forste-hvorfor {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; /* 2 kolonner */
       gap: 1em;
-    }
-
-    .forste-hvorfor p {
-      margin-top: 5em;
     }
 
     .tekst-kolonne {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: center; /* Midtstiller indhold lodret */
       gap: 0.5em;
     }
 
@@ -129,12 +133,6 @@
       flex-direction: column;
       justify-content: center;
       gap: 0.5em;
-    }
-
-
-    .tekst-kolonne2,
-    .billede2 {
-      order: initial;
     }
   }
 </style>

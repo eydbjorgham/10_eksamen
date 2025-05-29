@@ -4,7 +4,7 @@ import Button from "./Button.astro";
 
 <section>
   <div class="hero-content">
-    <video autoplay loop muted src="/vids/herovid.mp4"></video>
+    <video autoplay loop muted src="/vids/herovid.webm"></video>
   </div>
 
   <div class="hero-tekst">
@@ -18,8 +18,8 @@ import Button from "./Button.astro";
   .hero-content {
     position: relative;
     width: 100%;
-    height: 100vh; /* Video fylder hele viewportens højde */
-    overflow: hidden; /* Skjuler eventuel overskydende del af videoen */
+    height: 100vh; /* Fylder hele skærmhøjden */
+    overflow: hidden; /* Skjuler det der går udenfor */
   }
 
   .hero-content video {
@@ -28,19 +28,20 @@ import Button from "./Button.astro";
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Sørger for, at videoen fylder containeren pænt uden at strække sig */
+    object-fit: cover; /* Fylder uden at strække */
+    object-position: 39% center; /* Justerer videoudsnit */
   }
 
   .hero-tekst {
-    background-color: rgba(217, 217, 217, 0.5); /* Dét her giver præcis 50% opacitet */
-    display: inline-block; /* Gør at baggrunden kun fylder tekstens bredde */
-    padding: 0.8em 1em; /* Giver lidt luft omkring teksten */
-    border-radius: 1em; /* Gør hjørnerne runde – valgfrit */
-    opacity: 1; /* Brug ikke '50%', det bliver oversat forkert – brug 0.5 i stedet hvis du vil have gennemsigtighed */
+    background-color: rgba(217, 217, 217, 0.5); /* Halvgennemsigtig baggrund */
+    display: inline-block; /* Kun så bred som teksten */
+    padding: 0.8em 1em;
+    border-radius: 1em; /* Runde hjørner */
+    opacity: 1;
     position: absolute;
-    top: 76%;
+    top: 76%; /* Placeret nede i billedet */
     left: 3%;
-    z-index: 1;
+    z-index: 1; /* Over videoen */
     line-height: 1.5;
   }
 
@@ -59,11 +60,11 @@ import Button from "./Button.astro";
   @media (min-width: 769px) {
     .hero-tekst {
       top: 74%;
-      left: 2%;
+      left: 2%; /* Lidt tættere på hjørnet */
     }
 
     .hero-tekst h1 {
-      font-size: 1.5em;
+      font-size: 1.5em; /* Større overskrift */
     }
 
     .hero-tekst h2 {

@@ -4,32 +4,34 @@ import "../styles/styles.css";
 
 <div class="card">
   <div class="avatar-wrapper">
+    <!-- Billede -->
     <img src="/imgs/anmeldelse.webp" alt="Anmelder" class="avatar" />
   </div>
+  <!-- Ekstra indhold -->
   <slot />
 </div>
 
 <style>
   .card {
-    border: 2px solid #003049;
-    border-radius: 10px;
-    padding: 1em;
-    max-width: 300px;
+    border: 2px solid #003049; /* Kant */
+    border-radius: 10px; /* Runde hjørner */
+    padding: 1em; /* Luft indeni */
+    max-width: 300px; /* Bredde */
     background: white;
     margin-top: 0.5em;
-    text-align: left; /* ← Teksten skal stå til venstre */
+    text-align: left; /* Venstrestillet tekst */
   }
 
   .avatar-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1em;
+    display: flex; /* Flex layout */
+    justify-content: center; /* Centrerer */
+    margin-bottom: 1em; /* Luft under */
   }
 
   .avatar {
     width: 80px;
     height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
+    border-radius: 50%; /* Rundt billede */
+    object-fit: cover; /* Fylder uden stræk */
   }
 </style>

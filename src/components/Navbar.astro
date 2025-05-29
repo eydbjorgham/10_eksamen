@@ -116,10 +116,9 @@
   /** MOBILFORMAT */
   @media screen and (max-width: 980px) {
     /** VOGN */
-    .vogn img {
-      padding-top: 20px; /** Afstand top */
+    .vogn {
+      margin-top: -8px;
     }
-
     /** MENU */
     .menu {
       display: none; /** Menu skjules */
@@ -127,12 +126,13 @@
 
     .logo img {
       width: 30%; /** Størrelse på logo */
+      margin-left: 2.3em;
     }
 
     /** BURGER */
     .burger {
       display: block; /** Burger synlig */
-      margin-top: 25px; /** Afstand top */
+      margin-top: 0px; /** Afstand top */
       padding-left: 10px; /** Mellemrum venstre */
     }
 
@@ -154,7 +154,7 @@
     nav.active .menu {
       display: block; /** Menu bliver synlig */
       background-color: #ffffff; /** Baggrundsfar */
-      top: 150px; /** Menu kommer rigtig ned */
+      top: 93px; /** Menu kommer rigtig ned */
       left: 0; /** Fylder det hele */
       width: 100%; /** Menu fylder hele skærm */
       box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); /** Skygge */
@@ -174,16 +174,6 @@
     .navigation {
       display: flex; /** På linje m kurv */
       margin-right: 2em;
-    }
-  }
-
-  @media screen and (max-width: 980px) {
-    .burger {
-      margin-top: 0.7em;
-    }
-
-    .vogn {
-      margin-top: -1em;
     }
   }
 </style>

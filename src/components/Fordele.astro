@@ -1,5 +1,5 @@
 ---
-
+import "../styles/styles.css";
 ---
 
 <section class="wave-wrapper">
@@ -33,12 +33,12 @@
     width: 100%;
     height: auto;
     padding: 10em 2em;
-    overflow: hidden;
-    z-index: 0;
+    overflow: hidden; /* Skjuler indhold uden for boksen */
+    z-index: 0; /* Lægger bag alt andet */
   }
 
   .wave-wrapper::before {
-    content: "";
+    content: ""; /* Tilføjer bølgegrafik */
     position: absolute;
     top: 0;
     left: 0;
@@ -48,7 +48,7 @@
     background-size: auto 100%;
     background-position: center;
     background-repeat: repeat-x;
-    animation: waveScroll 15s linear infinite;
+    animation: waveScroll 20s linear infinite; /* Bølgens bevægelse */
   }
 
   @keyframes waveScroll {
@@ -56,7 +56,7 @@
       background-position-x: 0;
     }
     to {
-      background-position-x: -100%;
+      background-position-x: -100%; /* Ruller bølgen til venstre */
     }
   }
 
@@ -64,10 +64,10 @@
     display: grid;
     grid-template-rows: 1fr;
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Ligger over bølgen */
     align-items: center;
     text-align: left;
-    gap: 4em;
+    gap: 4em; /* Mellemrum mellem kolonner */
   }
 
   .fordele-kolonne,
@@ -81,7 +81,7 @@
   .fordele-kolonne img,
   .ulemper-kolonne img {
     max-width: 250px;
-    border-radius: 12px;
+    border-radius: 12px; /* Runde hjørner */
     width: 50%;
   }
 
@@ -89,20 +89,20 @@
   .ulemper-liste li {
     font-size: 0.9em;
     margin-bottom: 0.8em;
-    list-style: none;
+    list-style: none; /* Fjerner punkttegn */
     display: flex;
     align-items: center;
     color: #003f5b;
   }
 
   .fordele-liste li::before {
-    content: "✅";
+    content: "✅"; /* Grøn tjek */
     margin-right: 0.5em;
     color: #19a75f;
   }
 
   .ulemper-liste li::before {
-    content: "✖️";
+    content: "✖️"; /* Rød kryds */
     margin-right: 0.5em;
     color: #cc0000;
   }
@@ -114,7 +114,7 @@
 
     .fordele-indhold {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; /* 2 kolonner på større skærm */
     }
 
     .fordele-liste li,
@@ -126,6 +126,14 @@
     .ulemper-kolonne img {
       max-width: 250px;
       border-radius: 12px;
+    }
+
+    .fordele-kolonne {
+      margin-left: 15em;
+    }
+
+    .ulemper-kolonne {
+      margin-right: 15em;
     }
   }
 </style>

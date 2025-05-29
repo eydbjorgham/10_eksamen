@@ -36,15 +36,22 @@ img {
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 18px;
+    font-size: 1.3em;
   }
 
   h2 {
-    font-size: 15px;
+    font-size: 1em;
   }
 
-  p {
-    font-size: 15px;
+  p,
+  h3 {
+    font-size: 0.8em;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 }
 
@@ -54,10 +61,11 @@ img {
   }
 
   h2 {
-    font-size: 1.1em;
+    font-size: 1.5em;
   }
 
-  p {
+  p,
+  h3 {
     font-size: 1.1em;
   }
 }

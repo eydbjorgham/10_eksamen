@@ -1,5 +1,5 @@
 ---
-
+import "../styles/styles.css";
 ---
 
 <h2>6 hurtige om Lumi</h2>
@@ -44,33 +44,34 @@
 
 <style>
   h2 {
-    text-align: center;
+    text-align: center; /* Midterstiller overskrift */
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
+
   .svg {
-    max-width: none;
     width: 24px;
     height: 24px;
     display: inline-block;
-    vertical-align: middle;
-    border-radius: 0em;
+    vertical-align: middle; /* Justerer ikon ved siden af tekst */
   }
 
   div {
-    background: rgba(191, 219, 232, 0.5);
-    border-radius: 31px;
+    background: rgba(191, 219, 232, 0.5); /* Lys blå baggrund */
+    border-radius: 31px; /* Runde hjørner */
     width: 297px;
     height: 157px;
-    flex-shrink: 0;
-    margin: 0 auto;
+    flex-shrink: 0; /* Forhindrer at boksen bliver trykket sammen */
+    margin: 0 auto; /* Centrerer boksen */
     margin-bottom: 2rem;
   }
+
   h3 {
     font-weight: 700;
     text-align: center;
     padding-top: 1.5rem;
   }
+
   p {
     margin-left: 1.5rem;
     margin-top: 0.5rem;
@@ -79,7 +80,7 @@
     margin-right: 0.5rem;
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: 769px) {
     h2 {
       margin-top: 6rem;
       margin-bottom: 4rem;
@@ -88,7 +89,6 @@
     div {
       width: 450px;
       height: 245px;
-      flex-shrink: 0;
       border-radius: 31px;
       background: rgba(191, 219, 232, 0.5);
       margin: 0 auto;
@@ -96,20 +96,22 @@
     }
 
     section {
-      display: grid;
+      display: grid; /* 2 kolonner på stor skærm */
       grid-template-columns: 1fr 1fr;
       gap: 1px;
     }
+
     h3 {
-      font-weight: 400;
+      font-weight: 400; /* Lettere tekst */
       margin-top: 1rem;
     }
+
     p {
-      font-weight: 100;
+      font-weight: 100; /* Tyndere tekst */
       margin-right: 1rem;
     }
+
     .svg {
-      max-width: none;
       width: 48px;
       height: 48px;
       display: inline-block;

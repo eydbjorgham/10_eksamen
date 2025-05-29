@@ -19,25 +19,23 @@ import "../styles/styles.css";
 <style>
   @media (min-width: 769px) {
     .forurening {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .order {
-      display: block;
-      order: -1;
-      padding-left: 20px;
-    }
-
-    .forurening {
+      display: grid; /* Grid layout på desktop */
+      grid-template-columns: 1fr 1fr; /* 2 kolonner */
+      gap: 10px; /* Mellemrum mellem kolonner */
       margin-top: 2em;
       margin-bottom: 3em;
+    }
+
+    .order {
+      display: block;
+      order: -1; /* Rykker element op i rækkefølgen */
+      padding-left: 20px;
     }
   }
 
   @media (max-width: 768px) {
     .ftekst {
-      padding-top: 1em;
+      padding-top: 1em; /* Luft over tekst på mobil */
     }
   }
 </style>
